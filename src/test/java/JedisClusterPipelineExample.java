@@ -19,6 +19,7 @@ public class JedisClusterPipelineExample {
         Response<String> respHello = pipeline.get("hello");
         Response<Set<String>> respSet = pipeline.smembers("set");
         Response<List<String>> respPerson = pipeline.hmget("person", "name", "age");
+        // auto close pipeline
         pipeline.sync();
 
         System.out.println(respHello.get());
